@@ -4,6 +4,7 @@ export const content = [
   './src/components/**/*.{js,ts,jsx,tsx,mdx}',
   './src/app/**/*.{js,ts,jsx,tsx,mdx}',
 ];
+export const darkMode = false; // or 'media' or 'class'
 export const theme = {
   extend: {
     colors: {
