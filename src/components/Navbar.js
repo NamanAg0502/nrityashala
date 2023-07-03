@@ -10,6 +10,8 @@ import {
   Burger,
   rem,
   Text,
+  Drawer,
+  Menu,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import {
@@ -43,8 +45,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   links: {
-    width: rem(260),
-
+    width: rem(320),
     [theme.fn.smallerThan('sm')]: {
       display: 'none',
     },
@@ -56,6 +57,7 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan('sm')]: {
       width: 'auto',
       marginLeft: 'auto',
+      // display: 'none',
     },
   },
 
@@ -86,11 +88,20 @@ const useStyles = createStyles((theme) => ({
           ? theme.colors.dark[6]
           : theme.colors.gray[0],
     },
+    [theme.fn.smallerThan('sm')]: {
+      color: theme.colors.dark[0],
+      fontSize: theme.fontSizes.md,
+    },
   },
 
   linkActive: {
     '&, &:hover': {
       backgroundColor: '#F4C5AC',
+    },
+    [theme.fn.smallerThan('sm')]: {
+      '&, &:hover': {
+        color: theme.colors.dark[9],
+      },
     },
   },
 }));
@@ -106,9 +117,6 @@ export function Navbar({ links }) {
       className={cx(classes.link, {
         [classes.linkActive]: link.active === true,
       })}
-      onClick={(event) => {
-        setActive(link.link);
-      }}
     >
       {link.label}
     </Link>
@@ -117,17 +125,42 @@ export function Navbar({ links }) {
   return (
     <Header height={60} className={classes.navbar}>
       <Container className={classes.inner} size="xl">
-        <Burger
-          opened={opened}
-          onClick={toggle}
-          size="sm"
-          className={classes.burger}
-        />
+        <Menu withArrow shadow="md" width={150} onChange={toggle}>
+          <Menu.Target>
+            <Burger
+              opened={opened}
+              onClick={toggle}
+              size="sm"
+              className={classes.burger}
+            />
+          </Menu.Target>
+          <Menu.Dropdown
+            position="right"
+            transition="pop"
+            style={{
+              backgroundColor: '#302532',
+            }}
+          >
+            <Group
+              style={{
+                backgroundColor: '#302532',
+                padding: '1rem',
+                display: 'grid',
+                gridTemplateColumns: '1fr',
+              }}
+              spacing={5}
+            >
+              {items}
+            </Group>
+          </Menu.Dropdown>
+        </Menu>
         <Group className={classes.links} spacing={5}>
           {items}
         </Group>
 
-        <h1 className={classes.logo}>Nrityashala</h1>
+        <Link href="/">
+          <h1 className={classes.logo}>Nrityashala</h1>
+        </Link>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>
           <ActionIcon size="lg">

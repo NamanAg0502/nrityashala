@@ -29,7 +29,7 @@ const useStyles = createStyles((theme) => ({
     padding: `calc(${theme.spacing.xl} * 2.5)`,
 
     [theme.fn.smallerThan('sm')]: {
-      padding: `calc(${theme.spacing.xl} * 1.5)`,
+      padding: `calc(${theme.spacing.xl} * 1)`,
     },
   },
 

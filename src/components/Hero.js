@@ -32,6 +32,11 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'space-between',
     paddingTop: `calc(${theme.spacing.xl} * 4)`,
     paddingBottom: `calc(${theme.spacing.xl} * 4)`,
+    [theme.fn.smallerThan('md')]: {
+      flexDirection: 'column-reverse',
+      alignItems: 'center',
+      paddingTop: 0,
+    },
   },
 
   content: {
@@ -41,6 +46,7 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan('md')]: {
       maxWidth: '100%',
       marginRight: 0,
+      textAlign: 'center',
     },
   },
 
@@ -66,7 +72,10 @@ const useStyles = createStyles((theme) => ({
   image: {
     flex: 1,
     [theme.fn.smallerThan('md')]: {
-      display: 'none',
+      width: '100%',
+      maxWidth: 400,
+      marginTop: theme.spacing.xl,
+      marginBottom: theme.spacing.xl,
     },
   },
 
@@ -75,6 +84,17 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: '#F4C5AC',
     borderRadius: theme.radius.sm,
     padding: `${rem(4)} ${rem(12)}`,
+  },
+  buttonGroup: {
+    display: 'flex',
+    justifyContent: 'start',
+    alignItems: 'center',
+    marginTop: theme.spacing.xl,
+    width: '100%',
+    [theme.fn.smallerThan('md')]: {
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
   },
 }));
 
@@ -98,7 +118,7 @@ export default function Hero() {
               and a warm embrace to{' '}
               <span className={classes.highlight}>Nrityashala</span>
             </Title>
-            <Text color="#9F2F26" mt="xl" fz="lg">
+            <Text color="#9F2F26" mt="xl" fz="lg" className="hidden sm:block">
               We are delighted to have you join us on this extraordinary voyage
               into the world of Kathak dance. Discover the power of each
               footstep, the magic of intricate hand movements, and the language
@@ -107,7 +127,7 @@ export default function Hero() {
               artistic expression knows no bounds.
             </Text>
 
-            <Group mt={30}>
+            <Group mt={30} className={classes.buttonGroup}>
               <Button
                 variant="filled"
                 radius="xl"

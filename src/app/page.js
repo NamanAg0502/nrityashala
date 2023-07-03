@@ -8,6 +8,7 @@ export default function Page() {
         links={[
           { label: 'Home', link: '/', active: true },
           { label: 'About', link: '/about' },
+          { label: 'Gallery', link: '/pages/gallery' },
           { label: 'Contact', link: '/pages/contact' },
         ]}
       />
