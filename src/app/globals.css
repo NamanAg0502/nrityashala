@@ -2,26 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* E8E2C1,F4C5AC,302532,9F2F26,ECAD7C`` */
+
+@font-face {
+  font-family: 'Hindi';
+  src: url(../assets/samarkan/regular.ttf);
+  font-weight: 400;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+  font-family: 'HindiBold';
+  src: url(../assets/samarkan/bold.ttf);
+  font-weight: 700;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #e8e2c1;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #302532;
 }
