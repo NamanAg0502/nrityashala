@@ -1,6 +1,7 @@
 'use client';
 
 import ContactUs from '@/components/Contact';
+import Footer from '@/components/Footer';
 import { Navbar } from '@/components/Navbar';
 import { Container } from '@mantine/core';
 
@@ -10,14 +11,14 @@ export default function Contact() {
       <Navbar
         links={[
           { label: 'Home', link: '/' },
-          { label: 'About', link: '/about' },
           { label: 'Gallery', link: '/pages/gallery' },
           { label: 'Contact', link: '/pages/contact', active: true },
         ]}
       />
-      <Container size="md" className="flex items-center h-full mt-8 sm:mt-28">
+      <Container size="md" className="flex items-center h-full my-8 sm:my-28">
         <ContactUs />
       </Container>
+      <Footer />
     </div>
   );
 }
